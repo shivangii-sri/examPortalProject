@@ -1,0 +1,58 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+        <mat-card>
+          <div class="container text-center mt20" > 
+            <img src="../../../assets/examPortalLogo.png" alt="" />
+          </div>
+  
+          <h1 class="text-center">Login Here !</h1>
+  
+          <!--{{user|json}} : This is interpolation - used to dynamically see the input values by name field--> 
+          {{loginData | json}}
+
+          <form class="ml20 mr20" (ngSubmit)="formSubmit()">
+            <!-- Username field -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input
+                [(ngModel)] = "loginData.username"
+                name="username"
+                required
+                matInput
+                placeholder="Enter here"
+              />
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+  
+            <!-- Password field -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                [(ngModel)] = "loginData.password"
+                name="password"
+                required
+                type="password"
+                matInput
+                placeholder="Enter here"
+              />
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+  
+            <div class="container text-center mb20">
+              <button type="submit" mat-raised-button color="primary">
+                Login
+              </button>
+              <button class="ml20" mat-raised-button color="accent">
+                Reset
+              </button>
+            </div>        
+          </form>
+        </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  

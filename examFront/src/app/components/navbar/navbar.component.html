@@ -1,0 +1,60 @@
+<!-- This icon shows on left, with ExamPOrtal written on right with it. -->
+<mat-toolbar color="primary">
+  <a
+    routerLink="/"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu_book</mat-icon>
+  </a>
+  <span>Examportal</span>
+
+  <!-- This gives space -->
+  <span class="example-spacer"></span>
+
+  <!-- Login Button on right side-->
+  <a
+    *ngIf="!isLoggedIn"
+    [routerLink]="'/login'"
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>login</mat-icon>
+  </a>
+
+  <!-- Register -->
+  <a
+    *ngIf="!isLoggedIn"
+    [routerLink]="'/signup'"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>person</mat-icon>
+  </a>
+
+  <!-- getCurrentUser name when user logs-in  -->
+  <a
+    *ngIf="isLoggedIn && user!= null"
+    mat-icon-button
+    style="margin-right:60px;"
+    class="example-icon"
+    routerLink="/admin/profile"
+    aria-label="Example icon-button with share icon"
+  >
+    {{user.username}} 
+  </a>
+
+  <!-- Logout -->
+  <a
+    (click)="logout()"
+    *ngIf="isLoggedIn"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>logout</mat-icon>
+  </a>
+</mat-toolbar>
